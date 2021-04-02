@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.activitiesCol{
+  
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 50%;
+}
