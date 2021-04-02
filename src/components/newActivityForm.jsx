@@ -4,10 +4,10 @@ import { Button, Form } from "react-bootstrap";
 function NewActivityForm({ setActivitiesList, setLoading }) {
   const [newActivity, setNewActivity] = useState(null);
 
-  function addTodo() {
+  function addNewActivity() {
     if (newActivity && newActivity.item && newActivity.item.trim()) {
       setLoading(true);
-      fetch("https://todo-bl-api.web.app/activities/", {
+      fetch("https://tracker-bl.web.app/activities", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -29,15 +29,16 @@ function NewActivityForm({ setActivitiesList, setLoading }) {
 
   return (
     <>
-      <Form>
+      <Form className="activitiesRow">
         <Form.Group controlId="form">
           <Form.Label>Add New Activity</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
+          <Form.Control type="text" placeholder="Enter new activity" />
           <Form.Text className="text-muted">Add a new event that you want to track.</Form.Text>
+          <Button variant="primary" type="submit" onChange={(e) => setNewActivity({ item: e.target.value})} onClick={() => addNewActivity()}
+          >
+            Add
+          </Button>
         </Form.Group>
-        <Button variant="primary" type="submit" value={addTodo()}>
-          Submit
-        </Button>
       </Form>
     </>
   );

@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import ListGroup from "react-bootstrap/ListGroup";
 import Button from "react-bootstrap/Button";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, Spinner } from "react-bootstrap";
 
 function Activities({activitiesList}) {
+    
  
   return (
     <Container>
+        <h1 style={{ float: "center", align: "center" }}>Your Activities</h1>
       <Row className="activitiesRow">
-        <h1 style={{ float: "center" }}>Your Activites</h1>
         <Col style={{ justifyContent: "center" }}>
           <ListGroup className="Activities">
             {activitiesList.map((activity) => {
